@@ -27,7 +27,14 @@
         <div class="acoes">
             <span>⌕</span>
             <span>♙</span>
-            <span>🛒</span>
+            <button id="abrir-carrinho" onclick="abrirCarrinho()">🛒</button>
+
+            <!-- Overlay quando abre para o fundo ficar inalteravel quando abre -->
+            <div id="overlay" , class="overlay"></div>
+            <!-- Barra lateral -->
+            <aside id="barra-lateral" class="barra-lateral">
+                <button id="fechar-carrinho" onclick="fecharCarrinho()">╳</button>
+            </aside>
         </div>
     </header>
 
@@ -43,6 +50,7 @@
 </div>
 
 
+    <script src="js/tungtung.js"></script>
 </body>
 
 </html>
