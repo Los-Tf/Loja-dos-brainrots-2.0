@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
+     
 </head>
 
 <body>
@@ -24,8 +25,9 @@
             <a href="contato.html">Contato</a>
         </nav>
 
-        <div class="acoes">
+        <div class="acoes"> 
             <span>⌕</span>
+
             <span>♙</span>
             <button id="abrir-carrinho" onclick="abrirCarrinho()">🛒</button>
 
@@ -36,8 +38,14 @@
                 <button id="fechar-carrinho" onclick="fecharCarrinho()">╳</button>
             </aside>
         </div>
-    </header>
 
+<!-- Overlay quando abre para o fundo ficar inalteravel quando abre -->
+        <div id = "overlay", class="overlay"></div>
+<!-- Barra lateral -->
+        <aside id="barra-lateral" class="barra-lateral">
+            <button id="fechar-carrinho" onclick="fecharCarrinho()">╳</button>
+        </aside>
+    </header>
 
     <script src="js/tungtung.js"></script>
 </body>

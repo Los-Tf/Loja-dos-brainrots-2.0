@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy a Brainrot</title>
     <link rel="stylesheet" href="css/index.css">
+    
 </head>
 
 <body>
@@ -24,16 +25,17 @@
             <a href="contato.html">Contato</a>
         </nav>
 
-        <!-- Ações -->
-        <span>⌕</span>
+        <div class="acoes"> 
+            <span>⌕</span>
 
-        <span>♙</span>
+            <span>♙</span>
+        
+            <button id="abrir-carrinho" onclick="abrirCarrinho()">🛒</button>
+        </div>
 
-        <button id="abrir-carrinho" onclick="abrirCarrinho()">🛒</button>
-
-        <!-- Overlay quando abre para o fundo ficar inalteravel quando abre -->
-        <div id="overlay" , class="overlay"></div>
-        <!-- Barra lateral -->
+<!-- Overlay quando abre para o fundo ficar inalteravel quando abre -->
+        <div id = "overlay", class="overlay"></div>
+<!-- Barra lateral -->
         <aside id="barra-lateral" class="barra-lateral">
             <button id="fechar-carrinho" onclick="fecharCarrinho()">╳</button>
         </aside>
@@ -50,11 +52,6 @@
         </h3>
     </div>
 
-    <section>
-
-
-
-    </section>
 
     <script src="js/tungtung.js"></script>
 </body>
