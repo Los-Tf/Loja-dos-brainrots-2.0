@@ -27,6 +27,52 @@
     color: #b6ff00;
 }
 
+/* MENU */
+
+.navbar nav {
+    display: flex;
+    gap: 45px;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    padding: 28px 0;
+}
+
+.navbar nav a:hover {
+    color: #b6ff00;
+}
+
+/* ÍCONES */ 
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    color: white;
+    font-size: 25px;
+}
+
+.acoes span {
+    cursor: pointer;
+}
+
+.acoes span:hover {
+    color: #6ffb00;
+}
+
+.navbar nav .ativo {
+    color: #6ffb00;
+    border-bottom: 3px solid #b6ff00;
+}
+
+
 /* carrinho */
 
 .barra-lateral{
@@ -57,5 +103,12 @@
 
 .barra-lateral.open {
     transform: translateX(0);
+}
+
+.acoes button{
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #ffffff;
 }
 
