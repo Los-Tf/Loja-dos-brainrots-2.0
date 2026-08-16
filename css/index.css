@@ -75,6 +75,7 @@
 
 /* carrinho */
 
+.barra-lateral{
 #itens-carrinho {
     max-height: 400px;
     overflow-y: auto;
@@ -391,5 +392,6 @@ body::-webkit-scrollbar-track {
     background-color: #9cff00;
     color: #000;
 }
+
 
 

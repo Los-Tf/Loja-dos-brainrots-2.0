@@ -14,6 +14,17 @@ carrinhoFechar.addEventListener('click', () => {
 
 });
 
+    sidebar.classList.add('open');
+
+});
+
+carrinhoFechar.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+
+});
+
+
+
 
 
 /* COMANDO DE TROCA DE PÁGINA */
