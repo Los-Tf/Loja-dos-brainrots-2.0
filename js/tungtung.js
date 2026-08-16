@@ -4,24 +4,16 @@ const carrinhoFechar = document.getElementById('fechar-carrinho');
 const sidebar = document.getElementById('barra-lateral');
 
 
-
-
 carrinhoAbrir.addEventListener('click', () => {
-<<<<<<< Updated upstream
-  sidebar.classList.add('open');
-  overlay.classList.add('show');
+    sidebar.classList.add('open');
+
 });
 
 carrinhoFechar.addEventListener('click', () => {
-  sidebar.classList.remove('open');
-  overlay.classList.remove('show');
+    sidebar.classList.remove('open');
+
 });
 
-overlay.addEventListener('click', () => {
-  sidebar.classList.remove('open');
-  overlay.classList.remove('show');
-});
-=======
     sidebar.classList.add('open');
 
 });
@@ -32,7 +24,8 @@ carrinhoFechar.addEventListener('click', () => {
 });
 
 
->>>>>>> Stashed changes
+
+
 
 /* COMANDO DE TROCA DE PÁGINA */
 

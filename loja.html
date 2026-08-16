@@ -32,6 +32,15 @@
             <button id="abrir-carrinho">🛒</button>
     </header>
 
+        <div class="botoes-carrinho">
+            <button id="limpar-carrinho">Limpar carrinho</button>
+            <button id="finalizar-compra">Finalizar compra</button>
+        </div>
+    </aside>
+    </div>
+    
+
+
 
     <aside id="barra-lateral" class="barra-lateral">
 
@@ -46,15 +55,6 @@
             <strong id="total">R$ 0,00</strong>
         </div>
 
-<<<<<<< Updated upstream
-<!-- Overlay quando abre para o fundo ficar inalteravel quando abre -->
-        <div id = "overlay", class="overlay"></div>
-<!-- Barra lateral -->
-        <aside id="barra-lateral" class="barra-lateral">
-            <button id="fechar-carrinho" onclick="fecharCarrinho()">╳</button>
-        </aside>
-    </header>
-=======
         <div class="botoes-carrinho">
             <button id="limpar-carrinho">Limpar carrinho</button>
             <button id="finalizar-compra">Finalizar compra</button>
@@ -62,20 +62,33 @@
     </aside>
     </div>
     
->>>>>>> Stashed changes
 
-    <h2 style="text-align:center">Compre agora!</h2>
+<h2 style="text-align:center">Compre agora!</h2>
 
+<section class="destaques">
+  <div class="cards">
     <div class="card">
-        <img src="img/sahur.jpg" alt="Denim Jeans" style="width:100%">
-        <h1>Tung Tung Sahur</h1>
-        <p class="price">$67.67</p>
-        <p>Compre agora o prime sahur, o primeiro chad mogger que nasceu da IA.</p>
-        <p><button>Adicionar ao carinho</button></p>
+      <img src="img/tralala.png" alt="">
+      <h3>Tralalero Tralala</h3>
+      <p>Raro</p>
+      <strong>R$ 99,90</strong>
+
+      <button onclick="adicionarCarrinho('Tralalero Tralala', 99.90)">
+        🛒
+      </button>
     </div>
 
-<<<<<<< Updated upstream
-=======
+    <div class="card">
+      <img src="img/tung.png" alt="Tung Tung Tung Sahur">
+      <h3>Tung Tung Tung Sahur</h3>
+      <p>Épico</p>
+      <strong>R$ 129,90</strong>
+
+      <button onclick="adicionarCarrinho('Tung Tung Tung Sahur', 129.90)">
+        🛒
+      </button>
+    </div>
+
     <div class="card">
       <img src="img/ball.png" alt="Ballerina Cappuccina">
       <h3>Ballerina Cappuccina</h3>
@@ -101,9 +114,11 @@
 </section>
 
 
->>>>>>> Stashed changes
+
 
     <script src="js/tungtung.js"></script>
+    <script src="js/carrinho1.js"></script>
+
 </body>
 
 </html>

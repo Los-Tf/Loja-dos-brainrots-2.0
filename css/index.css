@@ -48,7 +48,7 @@
     color: #b6ff00;
 }
 
-/* ÍCONES */ 
+/* ÍCONES */
 
 .acoes {
     display: flex;
@@ -75,9 +75,7 @@
 
 /* carrinho */
 
-<<<<<<< Updated upstream
 .barra-lateral{
-=======
 #itens-carrinho {
     max-height: 400px;
     overflow-y: auto;
@@ -98,7 +96,6 @@
 }
 
 .barra-lateral {
->>>>>>> Stashed changes
     position: fixed;
     top: 0;
     right: 0;
@@ -107,41 +104,27 @@
     background: #111;
     color: rgb(255, 255, 255);
     padding: 20px;
-    box-sizing:border-box;
+    box-sizing: border-box;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 1000;
 }
 
-<<<<<<< Updated upstream
-.overlay{
-    
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 999;
-=======
 .barra-lateral button:hover {
     cursor: pointer;
->>>>>>> Stashed changes
 }
 
 .barra-lateral.open {
     transform: translateX(0);
 }
 
-.acoes button{
+.acoes button {
     cursor: pointer;
     background: none;
     border: none;
     color: #ffffff;
 }
 
-<<<<<<< Updated upstream
-=======
 /* body */
 
 body {
@@ -411,4 +394,4 @@ body::-webkit-scrollbar-track {
 }
 
 
->>>>>>> Stashed changes
+
