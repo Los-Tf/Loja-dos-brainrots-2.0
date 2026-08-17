@@ -14,9 +14,6 @@ carrinhoFechar.addEventListener('click', () => {
 
 });
 
-    sidebar.classList.add('open');
-
-});
 
 carrinhoFechar.addEventListener('click', () => {
     sidebar.classList.remove('open');
