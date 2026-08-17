@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy a Brainrot</title>
     <link rel="stylesheet" href="css/index.css">
- <link rel="stylesheet" href="css/cards.css">
 </head>
 
 <body>
@@ -30,19 +29,34 @@
 
             <span>♙</span>
 
-            <button id="abrir-carrinho" onclick="abrirCarrinho()">🛒</button>
-
-            <!-- Overlay quando abre para o fundo ficar inalteravel quando abre -->
-            <div id="overlay" , class="overlay"></div>
-            <!-- Barra lateral -->
-            <aside id="barra-lateral" class="barra-lateral">
-                <button id="fechar-carrinho" onclick="fecharCarrinho()">╳</button>
-            </aside>
-        </div>
+            <button id="abrir-carrinho">🛒</button>
     </header>
 
 
-    <div>
+    <aside id="barra-lateral" class="barra-lateral">
+
+        <button id="fechar-carrinho">╳</button>
+
+        <h2>Seu Carrinho</h2>
+
+        <div id="itens-carrinho"></div>
+
+        <div class="total-carrinho">
+            <span>Total:</span>
+            <strong id="total">R$ 0,00</strong>
+        </div>
+
+        <div class="botoes-carrinho">
+            <button id="limpar-carrinho">Limpar carrinho</button>
+            <button id="finalizar-compra">Finalizar compra</button>
+        </div>
+    </aside>
+    
+
+
+
+
+    <section class="inicio">
         <h1>COMPRE SEU
             <BR>BRAINROT
         </h1>
@@ -51,6 +65,118 @@
             <br> internet AGORA na sua coleção.
         </h3>
     </div>
+
+        <button>Ver Brainrots</button>
+    </section>
+
+    <section class="beneficios">
+        <div class="beneficio">
+            <div class="icone">🛡️</div>
+            <div>
+                <h3>COMPRA SEGURA</h3>
+                <p>Seus dados protegidos</p>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <div class="icone">🚚</div>
+            <div>
+                <h3>ENVIO RÁPIDO</h3>
+                <p>Para todo o Brasil</p>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <div class="icone">🏅</div>
+            <div>
+                <h3>PRODUTOS ORIGINAIS</h3>
+                <p>Qualidade garantida</p>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <div class="icone">🎧</div>
+            <div>
+                <h3>ATENDIMENTO 24/7</h3>
+                <p>Estamos sempre online</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="destaques">
+
+        <h2>Brainrots em Destaque</h2>
+
+        <div class="cards">
+            <div class="card">
+                <img src="img/tralala.png" alt="">
+                <h3>Tralalero Tralala</h3>
+                <p>Raro</p>
+
+                <!-- Adicionar mais de um por vez -->
+                <button onclick="aumentarQuantidade(this); atualizarPreco(89.90, this)">˄</button>
+                <strong class="quantidadeItens" ;>1</strong>
+                <button onclick="diminuirQuantidade(this); atualizarPreco(89.90, this)">∨</button>
+                <strong class="precos">R$ 89,90</strong>
+                <!-- ------------------------------------------------------ -->
+                <button onclick="adicionarCarrinho('Tralalero Tralala', 89.90, this)">
+                    🛒
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="img/tung.png" alt="Tung Tung Tung Sahur">
+                <h3>Tung Tung Tung Sahur</h3>
+                <p>Épico</p>
+
+                <!-- Adicionar mais de um por vez -->
+                <button onclick="aumentarQuantidade(this); atualizarPreco(129.90, this)">˄</button>
+                <strong class="quantidadeItens" ;>1</strong>
+                <button onclick="diminuirQuantidade(this); atualizarPreco(129.90, this)">∨</button>
+                <strong class="precos">R$ 129,90</strong>
+                <!-- ------------------------------------------------------ -->
+                <button onclick="adicionarCarrinho('Tung Tung Tung Sahur', 129.90, this)">
+                    🛒
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="img/ball.png" alt="Ballerina Cappuccina">
+                <h3>Ballerina Cappuccina</h3>
+                <p>Épico</p>
+
+                <!-- Adicionar mais de um por vez -->
+                <button onclick="aumentarQuantidade(this); atualizarPreco(129.90, this)">˄</button>
+                <strong class="quantidadeItens" ;>1</strong>
+                <button onclick="diminuirQuantidade(this); atualizarPreco(129.90, this)">∨</button>
+                <strong class="precos">R$ 129,90</strong>
+                <!-- ------------------------------------------------------ -->
+                <button onclick="adicionarCarrinho('Ballerina Cappuccina', 129.90, this)">
+                    🛒
+                </button>
+            </div>
+
+            <div class="card">
+                <img src="img/chi.png" alt="Chimpanzini Bananini">
+                <h3>Chimpanzini Bananini</h3>
+                <p>Raro</p>
+
+                <!-- Adicionar mais de um por vez -->
+                <button onclick="aumentarQuantidade(this); atualizarPreco(89.90, this)">˄</button>
+                <strong class="quantidadeItens" ;>1</strong>
+                <button onclick="diminuirQuantidade(this); atualizarPreco(89.90, this)">∨</button>
+                <strong class="precos">R$ 89,90</strong>
+                <!-- ------------------------------------------------------ -->
+                <button onclick="adicionarCarrinho('Chimpanzini Bananini', 89.90, this)">
+                    🛒
+                </button>
+            </div>
+        </div>
+
+
+
+    </section>
 
 
     <script src="js/tungtung.js"></script>
