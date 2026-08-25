@@ -485,3 +485,99 @@ label {
     border-radius: 3px;
     font-size: 20px;
 }
+
+/* PÁGINA DE COMPRA REALIZADA */
+
+.compra-sucesso {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.compra-sucesso h1 {
+    font-size: 50px;
+    margin: 0 0 15px;
+
+    color: white;
+}
+
+.compra-sucesso p {
+    font-size: 20px;
+    color: #aaa;
+
+    margin: 0 0 30px;
+}
+
+.botao-retornar {
+    background-color: #9cff00;
+    color: #000;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 14px 30px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.botao-retornar:hover {
+    background-color: #75c700;
+}
+
+
+/* BRAINROTS E MENSAGEM */
+
+.mensagem-sucesso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.brainrot-box {
+    width: 220px;
+    height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brainrot {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.texto-sucesso {
+    text-align: center;
+    width: 550px;
+}
+
+/* PÁGINA DE COMPRA REALIZADA */
+
+body.pagina-sucesso {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Aumenta o Tung Tung Sahur para ficar
+   visualmente do mesmo tamanho dos Tralaleritos */
+
+.brainrot-esquerda .brainrot {
+    transform: scale(1.7);
+}
