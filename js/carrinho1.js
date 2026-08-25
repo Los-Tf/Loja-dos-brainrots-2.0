@@ -1,101 +1,392 @@
+// ===============================
+// CARRINHO SALVO
+// ===============================
+
 let total = 0;
-let precos = document.getElementById("precos");
+
+let carrinho =
+    JSON.parse(localStorage.getItem("carrinho")) || [];
 
 
+// Verifica se o carrinho estava aberto
+let carrinhoAberto =
+    localStorage.getItem("carrinhoAberto") === "true";
+
+
+// ===============================
+// SALVAR CARRINHO
+// ===============================
+
+function salvarCarrinho() {
+
+    localStorage.setItem(
+        "carrinho",
+        JSON.stringify(carrinho)
+    );
+
+}
+
+
+// ===============================
+// AUMENTAR QUANTIDADE
+// ===============================
 
 function aumentarQuantidade(botao) {
-    // Procura qual é o card mais proximo do botão que esta clicando e aumenta sua quantidade
 
     const card = botao.closest(".card");
-    const quantidadeElement = card.querySelector(".quantidadeItens");
 
+    const quantidadeElement =
+        card.querySelector(".quantidadeItens");
 
-    let quantidade = Number(quantidadeElement.textContent);
+    let quantidade =
+        Number(quantidadeElement.textContent);
+
 
     if (quantidade < 10) {
+
         quantidade++;
-        quantidadeElement.textContent = quantidade;
+
+        quantidadeElement.textContent =
+            quantidade;
+
     }
+
 }
+
+
+// ===============================
+// DIMINUIR QUANTIDADE
+// ===============================
 
 function diminuirQuantidade(botao) {
-    // Procura qual é o card mais proximo do botão que esta clicando e diminui sua quantidade
+
     const card = botao.closest(".card");
-    const quantidadeElement = card.querySelector(".quantidadeItens");
 
+    const quantidadeElement =
+        card.querySelector(".quantidadeItens");
 
-    let quantidade = Number(quantidadeElement.textContent);
+    let quantidade =
+        Number(quantidadeElement.textContent);
+
 
     if (quantidade > 1) {
+
         quantidade--;
-        quantidadeElement.textContent = quantidade;
+
+        quantidadeElement.textContent =
+            quantidade;
+
     }
 
-} function atualizarPreco(atualizarPrecos, botao) {
-    // Procura dentro do card qual a quantidade de itens e atualiza o preço total ja na tela inicial
-    const card = botao.closest(".card");
-    const quantidadeElement = card.querySelector(".quantidadeItens");
-    let quantidade = Number(quantidadeElement.textContent);
-    const precosElement = card.querySelector(".precos");
-    precosElement.innerHTML = `R$ ${(atualizarPrecos * quantidade).toFixed(2).replace(".", ",")}`;
 }
+
+
+// ===============================
+// ATUALIZAR PREÇO DO CARD
+// ===============================
+
+function atualizarPreco(preco, botao) {
+
+    const card = botao.closest(".card");
+
+    const quantidadeElement =
+        card.querySelector(".quantidadeItens");
+
+    let quantidade =
+        Number(quantidadeElement.textContent);
+
+
+    const precosElement =
+        card.querySelector(".precos");
+
+
+    precosElement.innerHTML =
+        `R$ ${(preco * quantidade)
+            .toFixed(2)
+            .replace(".", ",")}`;
+
+}
+
+
+// ===============================
+// ADICIONAR AO CARRINHO
+// ===============================
 
 function adicionarCarrinho(nome, preco, botao) {
-    const carrinho = document.getElementById("itens-carrinho");
 
-    // Procura dentro do card a quantidade de itens e o preço do produto
-    const card = botao.closest(".card");
-    const quantidadeElement = card.querySelector(".quantidadeItens");
-    quantidade = Number(quantidadeElement.textContent);
-    // ----------------------------------------------------------------------
-
-    const produto = document.createElement("div");
-    produto.classList.add("produto-carrinho");
+    let quantidade = 1;
 
 
-    produto.innerHTML = `
-          <h3>${nome}</h3>
-        <p>R$ ${(preco * quantidade).toFixed(2).replace(".", ",")}</p>
-        <p>Quantidade: ${quantidade}</p>
-        `;
+    // Se o botão estiver em um card com quantidade
+    if (botao) {
+
+        const card =
+            botao.closest(".card");
 
 
-    carrinho.appendChild(produto);
+        if (card) {
 
-    total += preco * quantidade;
+            const quantidadeElement =
+                card.querySelector(".quantidadeItens");
 
-    document.getElementById("total").textContent =
-        "R$ " + total.toFixed(2).replace(".", ",");
+
+            if (quantidadeElement) {
+
+                quantidade =
+                    Number(quantidadeElement.textContent);
+
+            }
+
+
+        }
+
+    }
+
+
+    // Guarda o produto
+  const itemExistente = carrinho.find(
+    item => item.nome === nome
+);
+
+if (itemExistente) {
+
+    itemExistente.quantidade += quantidade;
+
+} else {
+
+    carrinho.push({
+        nome: nome,
+        preco: preco,
+        quantidade: quantidade
+    });
+
 }
 
-function limparCarrinho() {
-    const carrinho = document.getElementById("itens-carrinho");
+salvarCarrinho();
 
-    carrinho.innerHTML = "";
+
+    // Salva no navegador
+    salvarCarrinho();
+
+
+    // Atualiza a barra
+    carregarCarrinho();
+
+}
+
+
+// ===============================
+// MOSTRAR CARRINHO
+// ===============================
+
+function carregarCarrinho() {
+
+    const carrinhoElement =
+        document.getElementById("itens-carrinho");
+
+
+    const totalElement =
+        document.getElementById("total");
+
+
+    if (!carrinhoElement || !totalElement) {
+        return;
+    }
+
+
+    // Limpa a barra antes de reconstruir
+    carrinhoElement.innerHTML = "";
+
 
     total = 0;
 
-    document.getElementById("total").textContent = "R$ 0,00";
+
+    // Pega cada produto salvo
+    carrinho.forEach(produto => {
+
+        const elemento =
+            document.createElement("div");
+
+
+        elemento.classList.add(
+            "produto-carrinho"
+        );
+
+
+        elemento.innerHTML = `
+
+            <h3>${produto.nome}</h3>
+
+            <p>
+                R$ ${(produto.preco * produto.quantidade)
+                    .toFixed(2)
+                    .replace(".", ",")}
+            </p>
+
+            <p>
+                Quantidade: ${produto.quantidade}
+            </p>
+
+        `;
+
+
+        carrinhoElement.appendChild(elemento);
+
+
+        // Calcula o total
+        total +=
+            produto.preco * produto.quantidade;
+
+    });
+
+
+    // Mostra o total
+    totalElement.textContent =
+        "R$ " + total.toFixed(2).replace(".", ",");
+
 }
+
+
+// ===============================
+// LIMPAR CARRINHO
+// ===============================
+
+function limparCarrinho() {
+
+    carrinho = [];
+
+    salvarCarrinho();
+
+    carregarCarrinho();
+
+}
+
+
+// ===============================
+// FINALIZAR COMPRA
+// ===============================
 
 function finalizarCompra() {
-    window.location.href = "finalizar.html";
+
+    window.location.href =
+        "finalizar.html";
+
 }
 
-document.addEventListener("DOMContentLoaded", function () {
 
-    const limpar = document.getElementById("limpar-carrinho");
-    const finalizar = document.getElementById("finalizar-compra");
+// ===============================
+// QUANDO A PÁGINA CARREGAR
+// ===============================
 
-    if (limpar) {
-        limpar.addEventListener("click", limparCarrinho);
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const limpar =
+            document.getElementById(
+                "limpar-carrinho"
+            );
+
+
+        const finalizar =
+            document.getElementById(
+                "finalizar-compra"
+            );
+
+
+        const abrir =
+            document.getElementById(
+                "abrir-carrinho"
+            );
+
+
+        const fechar =
+            document.getElementById(
+                "fechar-carrinho"
+            );
+
+
+        const sidebar =
+            document.getElementById(
+                "barra-lateral"
+            );
+
+
+        // Botão limpar
+        if (limpar) {
+
+            limpar.addEventListener(
+                "click",
+                limparCarrinho
+            );
+
+        }
+
+
+        // Botão finalizar
+        if (finalizar) {
+
+            finalizar.addEventListener(
+                "click",
+                finalizarCompra
+            );
+
+        }
+
+
+        // Botão abrir
+        if (abrir && sidebar) {
+
+            abrir.addEventListener(
+                "click",
+                function () {
+
+                    sidebar.classList.add("open");
+
+                    localStorage.setItem(
+                        "carrinhoAberto",
+                        "true"
+                    );
+
+                }
+            );
+
+        }
+
+
+        // Botão fechar
+        if (fechar && sidebar) {
+
+            fechar.addEventListener(
+                "click",
+                function () {
+
+                    sidebar.classList.remove("open");
+
+                    localStorage.setItem(
+                        "carrinhoAberto",
+                        "false"
+                    );
+
+                }
+            );
+
+        }
+
+
+        // Carrega os produtos salvos
+        carregarCarrinho();
+
+
+        // Verifica se estava aberto
+        if (
+            carrinhoAberto &&
+            sidebar
+        ) {
+
+            sidebar.classList.add("open");
+
+        }
+
     }
-
-    if (finalizar) {
-        finalizar.addEventListener("click", finalizarCompra);
-    }
-
-});
-
-
-
+);
