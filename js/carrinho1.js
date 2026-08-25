@@ -105,7 +105,7 @@ function atualizarPreco(preco, botao) {
             .toFixed(2)
             .replace(".", ",")}`;
 
-}
+
 
 
 // ===============================
@@ -293,6 +293,14 @@ document.addEventListener(
                 "finalizar-compra"
             );
 
+<<<<<<< Updated upstream
+=======
+        finalizar.addEventListener(
+            "click",
+            finalizarCompra
+        );
+    
+>>>>>>> Stashed changes
 
         const abrir =
             document.getElementById(
