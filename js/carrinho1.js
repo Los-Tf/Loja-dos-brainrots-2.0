@@ -1,21 +1,15 @@
-// ===============================
-// CARRINHO SALVO
-// ===============================
+// Variáveis
 
 let total = 0;
 
 let carrinho =
     JSON.parse(localStorage.getItem("carrinho")) || [];
 
-
-// Verifica se o carrinho estava aberto
 let carrinhoAberto =
     localStorage.getItem("carrinhoAberto") === "true";
 
 
-// ===============================
-// SALVAR CARRINHO
-// ===============================
+// Salvar carrinho
 
 function salvarCarrinho() {
 
@@ -26,11 +20,8 @@ function salvarCarrinho() {
 
 }
 
-// AUMENTAR QUANTIDADE
 
-// ===============================
-// AUMENTAR QUANTIDADE
-// ===============================
+// Aumentar quantidade
 
 function aumentarQuantidade(botao) {
 
@@ -46,13 +37,15 @@ function aumentarQuantidade(botao) {
 
         quantidade++;
 
-        quantidadeElement.textContent = quantidade;
+        quantidadeElement.textContent =
+            quantidade;
+
     }
 
 }
 
 
-// DIMINUIR QUANTIDADE
+// Diminuir quantidade
 
 function diminuirQuantidade(botao) {
 
@@ -68,20 +61,15 @@ function diminuirQuantidade(botao) {
 
         quantidade--;
 
-        quantidadeElement.textContent = quantidade;
+        quantidadeElement.textContent =
+            quantidade;
+
     }
-}
-
-
-// ATUALIZAR PREÇO
-
-function atualizarPreco(preco, botao) {
 
 }
 
 
-
-// ATUALIZAR PREÇO DO CARD
+// Atualizar preço
 
 function atualizarPreco(preco, botao) {
 
@@ -93,130 +81,98 @@ function atualizarPreco(preco, botao) {
     let quantidade =
         Number(quantidadeElement.textContent);
 
-
     const precosElement =
         card.querySelector(".precos");
-
-    precosElement.innerHTML =
-        `R$ ${(preco * quantidade)
-        .toFixed(2)
-        .replace(".", ",")}`;
-}
-
-
-    const precosElement =
-        card.querySelector(".precos");
-
 
     precosElement.innerHTML =
         `R$ ${(preco * quantidade)
             .toFixed(2)
             .replace(".", ",")}`;
 
+}
 
 
-
-
-// ADICIONAR AO CARRINHO
+// Adicionar ao carrinho
 
 function adicionarCarrinho(nome, preco, botao) {
 
-    let quantidade = 1;
+    const carrinhoElement =
+        document.getElementById("itens-carrinho");
 
+    // Procura a quantidade dentro do card
+    const card = botao.closest(".card");
 
-    // Se o botão estiver em um card com quantidade
-    if (botao) {
+    const quantidadeElement =
+        card.querySelector(".quantidadeItens");
 
-        const card =
-            botao.closest(".card");
+    let quantidade =
+        Number(quantidadeElement.textContent);
 
+    // Procura se o item já existe
+    const itemExistente = carrinho.find(
+        item => item.nome === nome
+    );
 
-        if (card) {
+    // Se já existe, soma a quantidade
+    if (itemExistente) {
 
-            const quantidadeElement =
-                card.querySelector(".quantidadeItens");
-
-
-            if (quantidadeElement) {
-
-                quantidade =
-                    Number(quantidadeElement.textContent);
-
-            }
-
-
-        }
+        itemExistente.quantidade += quantidade;
 
     }
 
+    // Se não existe, cria um novo
+    else {
 
-    // Guarda o produto
-  const itemExistente = carrinho.find(
-    item => item.nome === nome
-);
+        carrinho.push({
 
-if (itemExistente) {
+            nome: nome,
 
-    itemExistente.quantidade += quantidade;
+            preco: preco,
 
-} else {
+            quantidade: quantidade
 
-    carrinho.push({
-        nome: nome,
-        preco: preco,
-        quantidade: quantidade
-    });
+        });
 
-}
+    }
 
-salvarCarrinho();
-
-
-    // Salva no navegador
+    // Salva o carrinho
     salvarCarrinho();
 
-
-    // Atualiza a barra
+    // Atualiza o que aparece na barra
     carregarCarrinho();
 
 }
 
 
+// Carregar carrinho
 
-// MOSTRAR CARRINHO
 function carregarCarrinho() {
 
     const carrinhoElement =
         document.getElementById("itens-carrinho");
 
-
     const totalElement =
         document.getElementById("total");
 
-
+    // Se a página não tiver carrinho, para aqui
     if (!carrinhoElement || !totalElement) {
         return;
     }
 
-
     // Limpa a barra antes de reconstruir
     carrinhoElement.innerHTML = "";
 
-
     total = 0;
 
-
-    // Pega cada produto salvo
+    // Percorre todos os produtos salvos
     carrinho.forEach(produto => {
 
         const elemento =
             document.createElement("div");
 
-
         elemento.classList.add(
             "produto-carrinho"
         );
-
 
         elemento.innerHTML = `
 
@@ -234,16 +190,13 @@ function carregarCarrinho() {
 
         `;
 
-
         carrinhoElement.appendChild(elemento);
-
 
         // Calcula o total
         total +=
             produto.preco * produto.quantidade;
 
     });
-
 
     // Mostra o total
     totalElement.textContent =
@@ -252,8 +205,8 @@ function carregarCarrinho() {
 }
 
 
+// Limpar carrinho
 
-// LIMPAR CARRINHO  
 function limparCarrinho() {
 
     carrinho = [];
@@ -265,9 +218,7 @@ function limparCarrinho() {
 }
 
 
-// ===============================
-// FINALIZAR COMPRA
-// ===============================
+// Finalizar compra
 
 function finalizarCompra() {
 
@@ -277,7 +228,8 @@ function finalizarCompra() {
 }
 
 
-// QUANDO A PÁGINA CARREGAR
+// Quando a página carregar
+
 document.addEventListener(
     "DOMContentLoaded",
     function () {
@@ -287,36 +239,25 @@ document.addEventListener(
                 "limpar-carrinho"
             );
 
-
         const finalizar =
             document.getElementById(
                 "finalizar-compra"
             );
-
-        finalizar.addEventListener(
-            "click",
-            finalizarCompra
-        );
-    
-
 
         const abrir =
             document.getElementById(
                 "abrir-carrinho"
             );
 
-
         const fechar =
             document.getElementById(
                 "fechar-carrinho"
             );
 
-
         const sidebar =
             document.getElementById(
                 "barra-lateral"
             );
-
 
         // Botão limpar
         if (limpar) {
@@ -328,7 +269,6 @@ document.addEventListener(
 
         }
 
-
         // Botão finalizar
         if (finalizar) {
 
@@ -339,8 +279,7 @@ document.addEventListener(
 
         }
 
-
-        // Botão abrir
+        // Botão abrir carrinho
         if (abrir && sidebar) {
 
             abrir.addEventListener(
@@ -359,8 +298,7 @@ document.addEventListener(
 
         }
 
-
-        // Botão fechar
+        // Botão fechar carrinho
         if (fechar && sidebar) {
 
             fechar.addEventListener(
@@ -379,12 +317,10 @@ document.addEventListener(
 
         }
 
-
         // Carrega os produtos salvos
         carregarCarrinho();
 
-
-        // Verifica se estava aberto
+        // Verifica se o carrinho estava aberto
         if (
             carrinhoAberto &&
             sidebar
