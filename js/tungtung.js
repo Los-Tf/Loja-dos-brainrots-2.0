@@ -1,38 +1,42 @@
+const carrinhoAbrir =
+    document.getElementById("abrir-carrinho");
 
-const carrinhoAbrir = document.getElementById('abrir-carrinho');
-const carrinhoFechar = document.getElementById('fechar-carrinho');
-const sidebar = document.getElementById('barra-lateral');
+const carrinhoFechar =
+    document.getElementById("fechar-carrinho");
 
-
-carrinhoAbrir.addEventListener('click', () => {
-    sidebar.classList.add('open');
-
-});
-
-carrinhoFechar.addEventListener('click', () => {
-    sidebar.classList.remove('open');
-
-});
+const sidebar =
+    document.getElementById("barra-lateral");
 
 
-carrinhoFechar.addEventListener('click', () => {
-    sidebar.classList.remove('open');
+carrinhoAbrir.addEventListener("click", () => {
+
+    sidebar.classList.add("open");
 
 });
 
 
+carrinhoFechar.addEventListener("click", () => {
+
+    sidebar.classList.remove("open");
+
+});
 
 
-
-/* COMANDO DE TROCA DE PÁGINA */
+// COMANDO DE TROCA DE PÁGINA
 
 const paginaAtual =
-  window.location.pathname.split("/").pop();
+    window.location.pathname.split("/").pop();
 
-const links = document.querySelectorAll(".navbar a");
+const links =
+    document.querySelectorAll(".navbar a");
+
 
 links.forEach(link => {
-  if (link.getAttribute("href") === paginaAtual) {
-    link.classList.add("ativo");
-  }
+
+    if (link.getAttribute("href") === paginaAtual) {
+
+        link.classList.add("ativo");
+
+    }
+
 });

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buy a Brainrot</title>
     <link rel="stylesheet" href="css/index.css">
- </head>
+</head>
+
+<body>
 
     <header class="navbar">
+
         <div class="logo">
             🧠
             <span>BUY A<br><strong>BRAINROT</strong></span>
@@ -23,12 +26,17 @@
 
         <div class="acoes">
             <span>⌕</span>
-
             <span>♙</span>
 
-            <button id="abrir-carrinho">🛒</button>
+            <button id="abrir-carrinho">
+                🛒
+            </button>
+        </div>
+
     </header>
 
+
+    <!-- CARRINHO -->
 
     <aside id="barra-lateral" class="barra-lateral">
 
@@ -44,65 +52,207 @@
         </div>
 
         <div class="botoes-carrinho">
-            <button id="limpar-carrinho">Limpar carrinho</button>
-            <button id="finalizar-compra">Finalizar compra</button>
+            <button id="limpar-carrinho">
+                Limpar carrinho
+            </button>
+
+            <button id="finalizar-compra">
+                Finalizar compra
+            </button>
         </div>
+
     </aside>
-    
 
-    
 
-<h2 style="text-align:center">Compre agora!</h2>
+    <!-- PRODUTOS -->
 
-<section class="destaques">
-  <div class="cards">
-    <div class="card">
-      <img src="img/tralala.png" alt="">
-      <h3>Tralalero Tralala</h3>
-      <p>Raro</p>
-      <strong>R$ 99,90</strong>
+    <section class="destaques">
 
-      <button onclick="adicionarCarrinho('Tralalero Tralala', 99.90)">
+        <h2>Nossos Brainrots</h2>
+
+        <div class="cards">
+
+            <!-- TRALALERO -->
+
+            <div class="card">
+
+                <img src="img/tralala.png" alt="Tralalero Tralala">
+
+                <h3>Tralalero Tralala</h3>
+
+                <p>Raro</p>
+
+                <button onclick="aumentarQuantidade(this); atualizarPreco(89.90, this)">
+                    ˄
+                </button>
+
+                <strong class="quantidadeItens">1</strong>
+
+                <button onclick="diminuirQuantidade(this); atualizarPreco(89.90, this)">
+                    ˅
+                </button>
+
+                <strong class="precos">
+                    R$ 89,90
+                </strong>
+
+                <button onclick="adicionarCarrinho('Tralalero Tralala', 89.90, this)">
+                    🛒
+                </button>
+
+            </div>
+
+
+            <!-- TUNG TUNG SAHUR -->
+
+            <div class="card">
+
+                <img src="img/tung.png" alt="Tung Tung Tung Sahur">
+
+                <h3>Tung Tung Tung Sahur</h3>
+
+                <p>Épico</p>
+
+                <button onclick="aumentarQuantidade(this); atualizarPreco(129.90, this)">
+                    ˄
+                </button>
+
+                <strong class="quantidadeItens">1</strong>
+
+                <button onclick="diminuirQuantidade(this); atualizarPreco(129.90, this)">
+                    ˅
+                </button>
+
+                <strong class="precos">
+                    R$ 129,90
+                </strong>
+
+                <button onclick="adicionarCarrinho('Tung Tung Tung Sahur', 129.90, this)">
+                    🛒
+                </button>
+
+            </div>
+
+
+            <!-- BALLERINA -->
+
+            <div class="card">
+
+                <img src="img/ball.png" alt="Ballerina Cappuccina">
+
+                <h3>Ballerina Cappuccina</h3>
+
+                <p>Épico</p>
+
+                <button onclick="aumentarQuantidade(this); atualizarPreco(129.90, this)">
+                    ˄
+                </button>
+
+                <strong class="quantidadeItens">1</strong>
+
+                <button onclick="diminuirQuantidade(this); atualizarPreco(129.90, this)">
+                    ˅
+                </button>
+
+                <strong class="precos">
+                    R$ 129,90
+                </strong>
+
+                <button onclick="adicionarCarrinho('Ballerina Cappuccina', 129.90, this)">
+                    🛒
+                </button>
+
+            </div>
+
+
+            <!-- CHIMPANZINI -->
+
+            <div class="card">
+
+                <img src="img/chi.png" alt="Chimpanzini Bananini">
+
+                <h3>Chimpanzini Bananini</h3>
+
+                <p>Raro</p>
+
+                <button onclick="aumentarQuantidade(this); atualizarPreco(89.90, this)">
+                    ˄
+                </button>
+
+                <strong class="quantidadeItens">1</strong>
+
+                <button onclick="diminuirQuantidade(this); atualizarPreco(89.90, this)">
+                    ˅
+                </button>
+
+                <strong class="precos">
+                    R$ 89,90
+                </strong>
+
+                <button onclick="adicionarCarrinho('Chimpanzini Bananini', 89.90, this)">
+                    🛒
+                </button>
+
+            </div>
+
+
+            <!-- CAPPUCCINO ASSASSINO -->
+
+        <div class="card">
+
+            <img src="img/ninjaA.png" alt="Cappucino Assassino">
+
+            <h3>Cappucino Assassino</h3>
+
+            <p>Épico</p>
+
+            <button onclick="aumentarQuantidade(this); atualizarPreco(119.90, this)">
+                ˄
+            </button>
+
+            <strong class="quantidadeItens">1</strong>
+
+            <button onclick="diminuirQuantidade(this); atualizarPreco(119.90, this)">
+                ˅
+            </button>
+
+            <strong class="precos">
+                R$ 119,90
+            </strong>
+
+            <button onclick="adicionarCarrinho('Cappucino Assassino', 119.90, this)">
+                🛒
+            </button>
+
+        </div>
+
+      <div class="card">
+
+    <img src="img/tungGod.png" alt="Tung Tung God">
+
+    <h3>Tung Tung God</h3>
+
+    <p>Lendário</p>
+
+    <button onclick="aumentarQuantidade(this); atualizarPreco(199.90, this)">
+        ˄
+    </button>
+
+    <strong class="quantidadeItens">1</strong>
+
+    <button onclick="diminuirQuantidade(this); atualizarPreco(199.90, this)">
+        ˅
+    </button>
+
+    <strong class="precos">
+        R$ 199,90
+    </strong>
+
+    <button onclick="adicionarCarrinho('Tung Tung God', 199.90, this)">
         🛒
-      </button>
-    </div>
+    </button>
 
-    <div class="card">
-      <img src="img/tung.png" alt="Tung Tung Tung Sahur">
-      <h3>Tung Tung Tung Sahur</h3>
-      <p>Épico</p>
-      <strong>R$ 129,90</strong>
-
-      <button onclick="adicionarCarrinho('Tung Tung Tung Sahur', 129.90)">
-        🛒
-      </button>
-    </div>
-
-    <div class="card">
-      <img src="img/ball.png" alt="Ballerina Cappuccina">
-      <h3>Ballerina Cappuccina</h3>
-      <p>Épico</p>
-      <strong>R$ 119,90</strong>
-
-      <button onclick="adicionarCarrinho('Ballerina Cappuccina', 119.90)">
-        🛒
-      </button>
-    </div>
-
-    <div class="card">
-      <img src="img/chi.png" alt="Chimpanzini Bananini">
-      <h3>Chimpanzini Bananini</h3>
-      <p>Raro</p>
-      <strong>R$ 89,90</strong>
-
-      <button onclick="adicionarCarrinho('Chimpanzini Bananini', 89.90)">
-        🛒
-      </button>
-    </div>
-
-</section>
-
-
+</div>
 
 
     <script src="js/tungtung.js"></script>
