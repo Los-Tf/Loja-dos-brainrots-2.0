@@ -1,19 +1,26 @@
+const carrinhoAbrir =
+    document.getElementById("abrir-carrinho");
 
 
+const sidebar =
+    document.getElementById("barra-lateral");
 
 
-
-
-
-/* COMANDO DE TROCA DE PÁGINA */
+// COMANDO DE TROCA DE PÁGINA
 
 const paginaAtual =
-  window.location.pathname.split("/").pop();
+    window.location.pathname.split("/").pop();
 
-const links = document.querySelectorAll(".navbar a");
+const links =
+    document.querySelectorAll(".navbar a");
+
 
 links.forEach(link => {
-  if (link.getAttribute("href") === paginaAtual) {
-    link.classList.add("ativo");
-  }
+
+    if (link.getAttribute("href") === paginaAtual) {
+
+        link.classList.add("ativo");
+
+    }
+
 });
