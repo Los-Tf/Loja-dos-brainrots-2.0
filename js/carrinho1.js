@@ -26,6 +26,7 @@ function salvarCarrinho() {
 
 }
 
+// AUMENTAR QUANTIDADE
 
 // ===============================
 // AUMENTAR QUANTIDADE
@@ -41,22 +42,17 @@ function aumentarQuantidade(botao) {
     let quantidade =
         Number(quantidadeElement.textContent);
 
-
     if (quantidade < 10) {
 
         quantidade++;
 
-        quantidadeElement.textContent =
-            quantidade;
-
+        quantidadeElement.textContent = quantidade;
     }
 
 }
 
 
-// ===============================
 // DIMINUIR QUANTIDADE
-// ===============================
 
 function diminuirQuantidade(botao) {
 
@@ -68,22 +64,24 @@ function diminuirQuantidade(botao) {
     let quantidade =
         Number(quantidadeElement.textContent);
 
-
     if (quantidade > 1) {
 
         quantidade--;
 
-        quantidadeElement.textContent =
-            quantidade;
-
+        quantidadeElement.textContent = quantidade;
     }
+}
+
+
+// ATUALIZAR PREÇO
+
+function atualizarPreco(preco, botao) {
 
 }
 
 
-// ===============================
+
 // ATUALIZAR PREÇO DO CARD
-// ===============================
 
 function atualizarPreco(preco, botao) {
 
@@ -99,6 +97,16 @@ function atualizarPreco(preco, botao) {
     const precosElement =
         card.querySelector(".precos");
 
+    precosElement.innerHTML =
+        `R$ ${(preco * quantidade)
+        .toFixed(2)
+        .replace(".", ",")}`;
+}
+
+
+    const precosElement =
+        card.querySelector(".precos");
+
 
     precosElement.innerHTML =
         `R$ ${(preco * quantidade)
@@ -108,9 +116,8 @@ function atualizarPreco(preco, botao) {
 }
 
 
-// ===============================
+
 // ADICIONAR AO CARRINHO
-// ===============================
 
 function adicionarCarrinho(nome, preco, botao) {
 
@@ -175,10 +182,8 @@ salvarCarrinho();
 }
 
 
-// ===============================
-// MOSTRAR CARRINHO
-// ===============================
 
+// MOSTRAR CARRINHO
 function carregarCarrinho() {
 
     const carrinhoElement =
@@ -247,10 +252,8 @@ function carregarCarrinho() {
 }
 
 
-// ===============================
-// LIMPAR CARRINHO
-// ===============================
 
+// LIMPAR CARRINHO  
 function limparCarrinho() {
 
     carrinho = [];
@@ -274,10 +277,7 @@ function finalizarCompra() {
 }
 
 
-// ===============================
 // QUANDO A PÁGINA CARREGAR
-// ===============================
-
 document.addEventListener(
     "DOMContentLoaded",
     function () {
@@ -293,6 +293,11 @@ document.addEventListener(
                 "finalizar-compra"
             );
 
+        finalizar.addEventListener(
+            "click",
+            finalizarCompra
+        );
+    }
 
         const abrir =
             document.getElementById(
