@@ -113,7 +113,7 @@ function atualizarPreco(preco, botao) {
             .toFixed(2)
             .replace(".", ",")}`;
 
-}
+
 
 
 
@@ -297,7 +297,8 @@ document.addEventListener(
             "click",
             finalizarCompra
         );
-    }
+    
+
 
         const abrir =
             document.getElementById(
