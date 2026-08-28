@@ -221,7 +221,12 @@ function limparCarrinho() {
 // Finalizar compra
 
 function finalizarCompra() {
-
+    if (carrinho.length === 0) {
+        alert(
+            "O carrinho está vazio. Adicione produtos antes de finalizar a compra."
+        );
+        return;
+    }
     window.location.href =
         "finalizar.html";
 
