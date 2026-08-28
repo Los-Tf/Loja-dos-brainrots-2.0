@@ -144,6 +144,8 @@ function adicionarCarrinho(nome, preco, botao) {
 }
 
 
+
+
 // Carregar carrinho
 
 function carregarCarrinho() {
@@ -218,6 +220,7 @@ function limparCarrinho() {
 }
 
 
+
 // Finalizar compra
 
 function finalizarCompra() {
@@ -232,7 +235,21 @@ function finalizarCompra() {
 
 }
 
+// Confirmar compra
 
+function confirmarCompra() {
+
+    localStorage.removeItem("carrinho");
+
+    localStorage.setItem(
+        "carrinhoAberto",
+        "false"
+    );
+
+    window.location.href =
+        "compra-sucesso.html";
+
+}
 // Quando a página carregar
 
 document.addEventListener(
