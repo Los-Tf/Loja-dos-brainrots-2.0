@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buy a Brainrot</title>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            🧠
+            <span>BUY A<br><strong>BRAINROT</strong></span>
+        </div>
+
+        <nav>
+            <a href="inicio.html">Início</a>
+            <a href="loja.html">Loja</a>
+        </nav>
+
+        <div class="acoes">
+        
+          
+    </header>
+
+
+
+    <div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>Endereço de cobrança</h3>
+            <label for="fname"><i class="fa fa-user"></i> Nome Completo</label>
+            <input type="text" id="fname" name="firstname" placeholder="Insira seu nome completo">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="Insira seu email">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Endereço</label>
+            <input type="text" id="adr" name="address" placeholder="Insira seu endereço">
+            <label for="city"><i class="fa fa-institution"></i> Cidade</label>
+            <input type="text" id="city" name="city" placeholder="Insira sua cidade">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">Estado</label>
+                <input type="text" id="state" name="state" placeholder="insira seu estado">
+              </div>
+              <div class="col-50">
+                <label for="zip">CEP</label>
+                <input type="text" id="zip" name="zip" placeholder="insira seu CEP">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Forma de Pagamento</h3>
+            <label for="fname">Cartões Aceitos</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Nome no Cartão</label>
+            <input type="text" id="cname" name="cardname" placeholder="insira o nome que está no cartão">
+            <label for="ccnum">Número do Cartão de Crédito</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="insira o número do cartão">
+            <label for="expmonth">Mês de Expiração</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="insira o mês de expiração">
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Ano de Expiração</label>
+                <input type="text" id="expyear" name="expyear" placeholder="insira o ano de expiração">
+              </div>
+              <div class="col-50">
+                <label for="cvv">Valor de Verificação do Cartão</label>
+                <input type="text" id="cvv" name="cvv" placeholder="insira o valor de verificação">
+              </div>
+            </div>
+          </div>
+          
+<button type="button" class="botao-finalizar" onclick="confirmarCompra()">
+    Finalizar compra
+</button>
+
+    <script src="js/tungtung.js"></script>
+    <script src="js/carrinho1.js"></script>
+
+
+
+    
+</body>
+
+
+</html>
+
